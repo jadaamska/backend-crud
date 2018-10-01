@@ -1,5 +1,5 @@
 const routes = [
-    require('./posts')
+    require('./anime')
 ];
 
 module.exports = function(app){
