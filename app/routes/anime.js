@@ -15,4 +15,16 @@ module.exports = function(app) {
                 res.json(data);
             });
     });
+
+    app.post('/deleteAnime', function(req) {
+        Anime.findByIdAndRemove(req.body._id, (err) => {
+            if(err) throw err;
+        })
+    });
+    app.post('/updateAnime', function(req) {
+        Anime.findByIdAndUpdate(req.body._id, req.body, {new: true},
+        (err) => {
+            if(err) throw err;
+        })
+    });
 };
