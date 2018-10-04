@@ -16,9 +16,10 @@ module.exports = function(app) {
             });
     });
 
-    app.delete('/anime/:id', function(req) {
-        Anime.findByIdAndRemove(req.params.id, (err) => {
+    app.delete('/anime/:id', function(req, res) {
+        Anime.findByIdAndRemove(req.params.id, (err,next) => {
             if(err) throw err;
+            res.send(next);
         })
     });
     app.post('/updateAnime', function(req) {
